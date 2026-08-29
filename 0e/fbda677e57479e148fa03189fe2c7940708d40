@@ -1,0 +1,14 @@
+README.md
+  h_d17878ddc2cea9 1-233
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "0efbda677e57479e148fa03189fe2c7940708d40",
+  "prompts": {},
+  "humans": {
+    "h_d17878ddc2cea9": {
+      "author": "jodagreyhame <66655312+jodagreyhame@users.noreply.github.com>"
+    }
+  }
+}
