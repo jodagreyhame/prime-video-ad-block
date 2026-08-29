@@ -1,0 +1,44 @@
+README.md
+  h_d17878ddc2cea9 19,46
+manifest.json
+  h_d17878ddc2cea9 3,142
+package-lock.json
+  h_d17878ddc2cea9 2,8
+package.json
+  h_d17878ddc2cea9 2,15
+src/background/service-worker.js
+  h_d17878ddc2cea9 2,93,103
+src/common/defaults.js
+  h_d17878ddc2cea9 2,5,14-15
+src/common/state-machine.js
+  h_d17878ddc2cea9 2,19-20
+src/content/detect.js
+  h_d17878ddc2cea9 2,11-13,206
+src/content/main.js
+  h_d17878ddc2cea9 2,10-14,55,325,411,419,488
+src/options/options.html
+  h_d17878ddc2cea9 5,13,106
+src/options/options.js
+  h_d17878ddc2cea9 2,155
+src/popup/popup.html
+  h_d17878ddc2cea9 5,11,21
+src/popup/popup.js
+  h_d17878ddc2cea9 2,78
+test/detect.test.js
+  h_d17878ddc2cea9 33,36
+tools/gen-manifest.mjs
+  h_d17878ddc2cea9 34,58
+tools/pack.mjs
+  h_d17878ddc2cea9 4,13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "ca4fc48ca5614cc155a72140b7fe79b19f4088d2",
+  "prompts": {},
+  "humans": {
+    "h_d17878ddc2cea9": {
+      "author": "jodagreyhame <66655312+jodagreyhame@users.noreply.github.com>"
+    }
+  }
+}
