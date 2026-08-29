@@ -1,0 +1,57 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f171e;
+  --panel: #17222c;
+  --line: #26333f;
+  --text: #eaf1f7;
+  --muted: #93a4b3;
+  --accent: #00a8e1;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 760px; margin: 0 auto; padding: 32px 24px 64px; }
+header { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+header div { flex: 1; }
+h1 { font-size: 20px; margin: 0; letter-spacing: -0.015em; }
+.sub { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.saved {
+  opacity: 0; transition: opacity 0.2s;
+  color: #35c46a; font-size: 12px; font-weight: 600;
+}
+.saved.show { opacity: 1; }
+section {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; padding: 18px 20px; margin-bottom: 16px;
+}
+h2 {
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.09em;
+  color: var(--muted); margin: 0 0 12px;
+}
+.row { display: flex; gap: 11px; padding: 8px 0; cursor: pointer; align-items: flex-start; }
+.row input { accent-color: var(--accent); width: 16px; height: 16px; margin-top: 3px; flex: none; cursor: pointer; }
+.row b, .field b { font-weight: 600; display: block; }
+.row em, .field em { display: block; color: var(--muted); font-style: normal; font-size: 12.5px; }
+.field { margin: 12px 0; }
+.field label { display: block; margin-bottom: 5px; }
+input[type="number"], select, textarea {
+  width: 100%; background: #0d151c; color: var(--text);
+  border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px;
+  font: inherit;
+}
+textarea { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12.5px; resize: vertical; }
+input[type="number"], select { max-width: 320px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+.btn {
+  background: #1e2c38; color: var(--text); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 14px; font: inherit; cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.danger:hover { border-color: #e0563f; color: #ff8f7a; }
+.note { color: var(--muted); font-size: 12.5px; }
+code { background: #0d151c; padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }

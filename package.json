@@ -1,0 +1,38 @@
+{
+  "name": "prime-video-ad-block",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "jodagreyhame",
+  "description": "Chrome extension that collapses Prime Video ad breaks: skips them when Prime offers a Skip button, fast-forwards them silently when it does not, and restores your sound the moment the show returns.",
+  "keywords": [
+    "chrome-extension",
+    "manifest-v3",
+    "prime-video",
+    "amazon-prime-video",
+    "ads",
+    "ad-skip",
+    "ad-block",
+    "fast-forward"
+  ],
+  "homepage": "https://github.com/jodagreyhame/prime-video-ad-block#readme",
+  "bugs": {
+    "url": "https://github.com/jodagreyhame/prime-video-ad-block/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jodagreyhame/prime-video-ad-block.git"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "icons": "node tools/make-icons.mjs",
+    "manifest": "node tools/gen-manifest.mjs",
+    "pack": "node tools/pack.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
+  }
+}

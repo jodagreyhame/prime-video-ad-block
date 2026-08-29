@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Prime Video Ad Block</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img src="../../icons/icon32.png" width="24" height="24" alt="" />
+      <h1>Prime Video Ad Block</h1>
+    </header>
+
+    <div class="status" id="status">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">Checking this tab…</span>
+    </div>
+
+    <label class="row master">
+      <input type="checkbox" id="enabled" />
+      <span>Prime Video Ad Block enabled</span>
+    </label>
+
+    <label class="row">
+      <input type="checkbox" id="fastForward" />
+      <span>Fast-forward ad breaks</span>
+    </label>
+
+    <label class="row">
+      <input type="checkbox" id="showToast" />
+      <span>Show on-screen badge</span>
+    </label>
+
+    <label class="row">
+      <input type="checkbox" id="chimeOnAdEnd" />
+      <span>Chime when the show returns</span>
+    </label>
+
+    <label class="row">
+      <input type="checkbox" id="notifyOnAdEnd" />
+      <span>Desktop alert when the show returns</span>
+    </label>
+
+    <div class="stats">
+      <div><strong id="statAds">0</strong><span>ads muted</span></div>
+      <div><strong id="statTime">0m</strong><span>silence saved</span></div>
+      <div><strong id="statToday">0</strong><span>today</span></div>
+    </div>
+
+    <footer>
+      <button id="options" class="link">All settings</button>
+      <button id="reset" class="link subtle">Reset stats</button>
+    </footer>
+
+    <script src="../common/defaults.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

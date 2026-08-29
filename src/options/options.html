@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Prime Video Ad Block — settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="../../icons/icon48.png" width="40" height="40" alt="" />
+        <div>
+          <h1>Prime Video Ad Block</h1>
+          <p class="sub">Mutes ad breaks, gives the sound back the moment your show returns.</p>
+        </div>
+        <span id="saved" class="saved">Saved</span>
+      </header>
+
+      <section>
+        <h2>What to do about an ad break</h2>
+        <div class="field">
+          <label for="adAction"><b>Action</b></label>
+          <select id="adAction">
+            <option value="mute">Mute the break (safe default)</option>
+            <option value="accelerate">Mute and fast-forward through it</option>
+          </select>
+          <em>
+            Fast-forward plays the ad at speed instead of removing it — a 30-second ad
+            becomes about 4 seconds of muted blur. Prime stitches its ads into the same
+            stream as the show, so they cannot be skipped outright.
+          </em>
+        </div>
+        <div class="grid">
+          <div class="field">
+            <label for="accelRate"><b>Fast-forward speed</b></label>
+            <input type="number" id="accelRate" min="2" max="16" step="1" />
+            <em>&times; — Chrome rejects anything above 16</em>
+          </div>
+          <div class="field">
+            <label for="adPollMs"><b>Check interval during a break</b></label>
+            <input type="number" id="adPollMs" min="50" max="1000" step="50" />
+            <em>ms — at 8&times;, 400 ms of lag costs 3.2 s of your show</em>
+          </div>
+        </div>
+        <label class="row"><input type="checkbox" id="clickNativeSkip" /><span><b>Click Prime's own "Skip Ad" button</b><em>Free and sanctioned, on the few breaks that carry one. It only renders while the player controls are visible.</em></span></label>
+      </section>
+
+      <section>
+        <h2>Muting</h2>
+        <label class="row"><input type="checkbox" id="enabled" /><span><b>Enabled</b><em>Master switch. Off means the extension touches nothing.</em></span></label>
+        <label class="row"><input type="checkbox" id="muteDuringAds" /><span><b>Mute during ad breaks</b><em>Turn this off to keep only the alerts.</em></span></label>
+        <label class="row"><input type="checkbox" id="respectManualUnmute" /><span><b>Respect a manual unmute</b><em>If you unmute by hand mid-ad, stop fighting you until the next break.</em></span></label>
+
+        <div class="field">
+          <label for="muteTarget"><b>What to mute</b></label>
+          <select id="muteTarget">
+            <option value="video">The video element (recommended)</option>
+            <option value="tab">The whole browser tab</option>
+            <option value="both">Both</option>
+          </select>
+          <em id="tabPermNote">Tab muting needs the optional "tabs" permission; you'll be asked once.</em>
+        </div>
+      </section>
+
+      <section>
+        <h2>Alerts</h2>
+        <label class="row"><input type="checkbox" id="showToast" /><span><b>On-screen badge over the player</b><em>"Ad muted" while the break runs, "Sound back on" after.</em></span></label>
+        <label class="row"><input type="checkbox" id="toastCountdown" /><span><b>Show the countdown</b><em>When Prime tells us how long the break is.</em></span></label>
+        <label class="row"><input type="checkbox" id="chimeOnAdStart" /><span><b>Chime when an ad starts</b></span></label>
+        <label class="row"><input type="checkbox" id="chimeOnAdEnd" /><span><b>Chime when the show returns</b><em>Useful if you look away during the break.</em></span></label>
+        <label class="row"><input type="checkbox" id="notifyOnAdStart" /><span><b>Desktop notification when an ad starts</b></span></label>
+        <label class="row"><input type="checkbox" id="notifyOnAdEnd" /><span><b>Desktop notification when the show returns</b></span></label>
+        <label class="row"><input type="checkbox" id="badge" /><span><b>"AD" badge on the toolbar icon</b></span></label>
+        <p><button id="preview" class="btn">Preview the on-screen badge</button></p>
+      </section>
+
+      <section>
+        <h2>Timing</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="muteDelayMs"><b>Delay before muting</b></label>
+            <input type="number" id="muteDelayMs" min="0" max="5000" step="50" />
+            <em>ms — 0 mutes instantly</em>
+          </div>
+          <div class="field">
+            <label for="unmuteDelayMs"><b>Delay before unmuting</b></label>
+            <input type="number" id="unmuteDelayMs" min="0" max="5000" step="50" />
+            <em>ms — covers the gap between ads in one pod</em>
+          </div>
+          <div class="field">
+            <label for="maxAdMuteMin"><b>Safety release</b></label>
+            <input type="number" id="maxAdMuteMin" min="1" max="60" step="1" />
+            <em>minutes — never stay muted longer than this</em>
+          </div>
+          <div class="field">
+            <label for="pollMs"><b>Check interval</b></label>
+            <input type="number" id="pollMs" min="100" max="2000" step="50" />
+            <em>ms — lower reacts faster, costs a little more CPU</em>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Detection</h2>
+        <p class="note">
+          Prime Video renames its player classes from time to time. If Prime Video Ad Block stops working, turn on
+          the on-screen readout, watch it during an ad, and add whatever element identifies the
+          ad here.
+        </p>
+        <label class="row"><input type="checkbox" id="useHeuristicClassSignal" /><span><b>Broad class heuristic</b><em>Treat any visible <code>ad</code>-named element in the player as an ad. More reach, more false positives.</em></span></label>
+        <div class="field">
+          <label for="customSelectors"><b>Extra CSS selectors</b></label>
+          <textarea id="customSelectors" rows="4" spellcheck="false" placeholder=".atvwebplayersdk-adtimeindicator-text&#10;[data-testid=&quot;ad-badge&quot;]"></textarea>
+          <em>One per line. A visible match means "an ad is playing".</em>
+        </div>
+        <div class="field">
+          <label for="customTextPatterns"><b>Extra text patterns</b></label>
+          <textarea id="customTextPatterns" rows="3" spellcheck="false" placeholder="your program resumes in"></textarea>
+          <em>One case-insensitive regex per line, matched against the player overlay text.</em>
+        </div>
+        <label class="row"><input type="checkbox" id="debug" /><span><b>Debug mode</b><em>Verbose console logging from the player page.</em></span></label>
+        <label class="row"><input type="checkbox" id="showHud" /><span><b>On-screen readout</b><em>Pins a live status panel to the bottom-left of the player: phase, signals, remaining time and the raw evidence. Off by default.</em></span></label>
+      </section>
+
+      <section>
+        <h2>Backup</h2>
+        <p>
+          <button id="export" class="btn">Export settings</button>
+          <button id="import" class="btn">Import settings</button>
+          <button id="reset" class="btn danger">Reset to defaults</button>
+        </p>
+        <input type="file" id="importFile" accept="application/json" hidden />
+        <p id="ioNote" class="note"></p>
+      </section>
+    </main>
+
+    <script src="../common/defaults.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
