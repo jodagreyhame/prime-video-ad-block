@@ -1,0 +1,60 @@
+.gitignore
+  h_d17878ddc2cea9 1-2
+LICENSE
+  h_d17878ddc2cea9 1-21
+README.md
+  h_d17878ddc2cea9 1-253
+manifest.json
+  h_d17878ddc2cea9 1-161
+package-lock.json
+  h_d17878ddc2cea9 1-558
+package.json
+  h_d17878ddc2cea9 1-38
+src/background/service-worker.js
+  h_d17878ddc2cea9 1-137
+src/common/defaults.js
+  h_d17878ddc2cea9 1-143
+src/common/state-machine.js
+  h_d17878ddc2cea9 1-288
+src/content/detect.js
+  h_d17878ddc2cea9 1-215
+src/content/main.js
+  h_d17878ddc2cea9 1-632
+src/options/options.css
+  h_d17878ddc2cea9 1-57
+src/options/options.html
+  h_d17878ddc2cea9 1-140
+src/options/options.js
+  h_d17878ddc2cea9 1-189
+src/popup/popup.css
+  h_d17878ddc2cea9 1-52
+src/popup/popup.html
+  h_d17878ddc2cea9 1-58
+src/popup/popup.js
+  h_d17878ddc2cea9 1-111
+test/detect.test.js
+  h_d17878ddc2cea9 1-290
+test/parsers.test.js
+  h_d17878ddc2cea9 1-109
+test/state-machine.test.js
+  h_d17878ddc2cea9 1-410
+test/structure.test.js
+  h_d17878ddc2cea9 1-83
+tools/gen-manifest.mjs
+  h_d17878ddc2cea9 1-78
+tools/make-icons.mjs
+  h_d17878ddc2cea9 1-162
+tools/pack.mjs
+  h_d17878ddc2cea9 1-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "02a5da1e35285c07b912c393a52e447ea0a18ac8",
+  "prompts": {},
+  "humans": {
+    "h_d17878ddc2cea9": {
+      "author": "jodagreyhame <66655312+jodagreyhame@users.noreply.github.com>"
+    }
+  }
+}
